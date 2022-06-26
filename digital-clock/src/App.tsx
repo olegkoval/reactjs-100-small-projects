@@ -4,11 +4,24 @@ import Circle from "./components/Circle";
 import Ampm from "./components/Ampm";
 import './App.css';
 
+type TInitValues = {
+    hours: number,
+    minutes: number,
+    seconds: number,
+    ampm: string,
+}
+const initValues: TInitValues = {
+    hours: new Date().getHours(),
+    minutes: new Date().getMinutes(),
+    seconds: new Date().getSeconds(),
+    ampm: new Date().getHours() > 12 ? 'PM' : 'AM'
+}
+
 const App: FC = () => {
-    const [hours, setHours] = useState(0);
-    const [minutes, setMinutes] = useState(0);
-    const [seconds, setSeconds] = useState(0);
-    const [ampm, setAmpm] = useState('AM');
+    const [hours, setHours] = useState(initValues.hours);
+    const [minutes, setMinutes] = useState(initValues.minutes);
+    const [seconds, setSeconds] = useState(initValues.seconds);
+    const [ampm, setAmpm] = useState(initValues.ampm);
 
     useEffect(() => {
         const interval = setInterval(() => {
