@@ -1,4 +1,4 @@
-import React, {FC} from "react";
+import React, {FC, memo} from "react";
 
 type CProps = {
     circleType: string,
@@ -11,7 +11,7 @@ const STROKE_DIVIDER_MIN_SEC = 60;
 const DOTS_TRANSFORM_ROTATE_HOURS = 30;
 const DOTS_TRANSFORM_ROTATE_MIN_SEC = 6;
 
-const Circle: FC<CProps> = ({circleType, circleValue}) => {
+const Circle: FC<CProps> = memo(({circleType, circleValue}) => {
     let strokeDivider = STROKE_DIVIDER_MIN_SEC;
     let dotsTransformRotate = DOTS_TRANSFORM_ROTATE_MIN_SEC;
 
@@ -44,6 +44,6 @@ const Circle: FC<CProps> = ({circleType, circleValue}) => {
             </div>
         </div>
     )
-}
+});
 
 export default Circle;
